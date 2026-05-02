@@ -22,7 +22,6 @@ const Hero = () => {
     });
   }, []);
 
- 
   useEffect(() => {
     AOS.refresh();
   }, [current]);
@@ -46,13 +45,13 @@ const Hero = () => {
 
   return (
     <div
-      className="relative h-screen flex flex-col justify-center px-6 md:px-12 text-white overflow-hidden"
+      className="relative h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 text-white overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onMouseMove={handleMouseMove}
     >
       <div
-        className="absolute inset-0 transition-all duration-1200 ease-out "
+        className="absolute inset-0 transition-all duration-1200 ease-out"
         style={{
           backgroundImage: `url(${images[current]})`,
           backgroundSize: "cover",
@@ -65,21 +64,23 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-black/50 pointer-events-none"></div>
 
+      {/* arrows */}
       <button
         onClick={prev}
-        className="absolute left-5 top-1/2 -translate-y-1/2 z-30 bg-white/20 px-3 py-2 rounded-full backdrop-blur hover:scale-110 transition"
+        className="absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 z-30 bg-white/20 px-3 py-2 rounded-full backdrop-blur hover:scale-110 transition"
       >
         ◀
       </button>
 
       <button
         onClick={next}
-        className="absolute right-5 top-1/2 -translate-y-1/2 z-30 bg-white/20 px-3 py-2 rounded-full backdrop-blur hover:scale-110 transition"
+        className="absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 z-30 bg-white/20 px-3 py-2 rounded-full backdrop-blur hover:scale-110 transition"
       >
         ▶
       </button>
 
-      <div className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 gap-4 z-20 overflow-hidden">
+      {/* side cards */}
+      <div className="hidden md:flex absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 gap-3 lg:gap-4 z-20 overflow-hidden">
         {images.map((img, i) => {
           const index = (current + i + 1) % images.length;
 
@@ -87,7 +88,7 @@ const Hero = () => {
             <div
               key={i}
               onClick={() => setCurrent(index)}
-              className="cursor-pointer w-35 h-55 rounded-2xl bg-cover bg-center shadow-xl transition-all duration-500"
+              className="cursor-pointer w-20 sm:w-24 md:w-28 lg:w-32 h-32 sm:h-40 md:h-48 lg:h-56 rounded-2xl bg-cover bg-center shadow-xl transition-all duration-500"
               style={{
                 backgroundImage: `url(${images[index]})`,
                 transform: `
@@ -101,11 +102,12 @@ const Hero = () => {
         })}
       </div>
 
-      <div key={current} className="relative z-30 max-w-175">
+      {/* content */}
+      <div key={current} className="relative z-30 max-w-full md:max-w-[700px]">
         <h1
           data-aos="fade-up"
           data-aos-delay="100"
-          className="text-3xl md:text-5xl font-bold leading-tight"
+          className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight"
         >
           Your complete guide for a{" "}
           <span className="text-[#d14b30]">seamless</span> travel experience
@@ -114,7 +116,7 @@ const Hero = () => {
         <div
           data-aos="fade-up"
           data-aos-delay="300"
-          className="mt-6 ms-20 flex gap-4"
+          className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4"
         >
           <button className="bg-[#d14b30] px-5 py-2 rounded-full hover:scale-105 transition">
             Start Planning
@@ -124,49 +126,50 @@ const Hero = () => {
           </button>
         </div>
 
-<div
-  data-aos="fade-up"
-  data-aos-delay="500"
-  className="mt-15 ms-15 bg-white text-black p-2 md:p-3 rounded-2xl flex flex-col md:flex-row items-center gap-2 shadow-lg w-full max-w-xl"
->
-  <div className="flex-1 px-1 border-b md:border-b-0 md:border-r border-gray-200 ">
-    <p className="text-xs text-teal-900 text-start">Destination</p>
-    <input
-      className="w-50 outline-none text-sm"
-      placeholder="Where are you going?"
-    />
-  </div>
+        {/* search card */}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="500"
+          className="mt-10 sm:mt-12 md:mt-15  bg-white text-black p-3 md:p-4 rounded-2xl flex flex-col md:flex-row items-stretch md:items-center gap-3 shadow-lg w-full max-w-md sm:max-w-lg md:max-w-xl"
+        >
+          <div className="flex-1 px-2 border-b md:border-b-0 md:border-r border-gray-200">
+            <p className="text-xs text-teal-900 text-start">Destination</p>
+            <input
+              className="w-full outline-none text-sm"
+              placeholder="Where are you going?"
+            />
+          </div>
 
-  <div className="flex-1 px-1 border-b md:border-b-0 md:border-r border-gray-200">
-    <p className="text-xs text-start text-teal-900">Travel Dates</p>
-    <input
-      className="w-50 outline-none text-sm"
-      placeholder="mm/dd/yyyy"
-    />
-  </div>
+          <div className="flex-1 px-2 border-b md:border-b-0 md:border-r border-gray-200">
+            <p className="text-xs text-start text-teal-900">Travel Dates</p>
+            <input
+              className="w-full outline-none text-sm"
+              placeholder="mm/dd/yyyy"
+            />
+          </div>
 
-  <div className="flex-1 px-1 ">
-    <p className="text-xs text-teal-900 text-start">Budget</p>
-    <input
-      className="w-full outline-none text-sm"
-      placeholder="$1000 - $5000"
-    />
-  </div>
+          <div className="flex-1 px-2">
+            <p className="text-xs text-teal-900 text-start">Budget</p>
+            <input
+              className="w-full outline-none text-sm"
+              placeholder="$1000 - $5000"
+            />
+          </div>
 
- <button className="bg-[#d14b30] text-white px-3 py-2 rounded-xl hover:scale-105 transition flex items-center justify-center">
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-5 h-5"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth="2"
-  >
-    <circle cx="11" cy="11" r="7" />
-    <line x1="20" y1="20" x2="16.65" y2="16.65" />
-  </svg>
-</button>
-</div>
+          <button className="bg-[#d14b30] text-white px-3 py-2 rounded-xl hover:scale-105 transition flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <line x1="20" y1="20" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );
