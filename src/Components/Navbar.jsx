@@ -1,5 +1,5 @@
 import iconlogo from "../assets/plane.png";
-import crown from "../assets/crown.png";    
+import crown from "../assets/crown.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
@@ -15,7 +15,6 @@ const Navbar = () => {
     <>
       {/* NAVBAR */}
       <div className="flex justify-between items-center w-full px-4 md:px-10 py-3 bg-white sticky top-0 z-50">
-        
         {/* LOGO */}
         <div className="logo flex items-center gap-2 relative">
           <p className="text-black text-lg md:text-2xl font-bold">
@@ -30,9 +29,9 @@ const Navbar = () => {
 
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center gap-10 font-semibold text-black">
-          <p>Home</p>
-          <p>Hotels</p>
-          <p>Profile</p>
+          <p>Trip plan</p>
+          <p>Countries</p>
+          <p>Payment</p>
           <div className="flex items-center gap-2">
             <img src={crown} alt="crown" className="w-5" />
             <p>Premium</p>
@@ -52,14 +51,32 @@ const Navbar = () => {
         {/* HAMBURGER */}
         <button className="md:hidden z-50" onClick={() => setOpen(!open)}>
           {open ? (
-            <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-7 h-7 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
-            <svg className="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="w-7 h-7 text-black"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           )}
         </button>

@@ -5,7 +5,7 @@ import Destinations from "./Destinations";
 import HotelsSection from "../../Pages/Country/HotelsSection";
 import CTA from "./CTA";
 import Footer from "./Footer";
-
+import Aboutus from "./Aboutus";
 const Home = () => {
   const countries = ["egypt", "france", "turkey"];
   const [currentCountry, setCurrentCountry] = useState(countries[0]);
@@ -26,7 +26,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <Destinations />
-
+      <Aboutus />
       <div className="transition-all duration-700 ease-in-out">
         <HotelsSection countryName={currentCountry} />
       </div>
