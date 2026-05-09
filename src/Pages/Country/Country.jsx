@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Navbar from "./Navbar";
 import HeroSection from "./HeroSection";
 import CategoryCards from "./CategoryCards";
 import HotelsSection from "./HotelsSection";
@@ -12,7 +11,7 @@ const CountryPage = () => {
 
   return (
     <div className="w-full overflow-x-hidden bg-gray-50">
-      <Navbar />
+   
 
       <HeroSection onCountryChange={setCurrentCountry} />
 

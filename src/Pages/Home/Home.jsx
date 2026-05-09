@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Navbar from "../../Components/Navbar";
 import Hero from "./Hero";
 import Destinations from "./Destinations";
 import HotelsSection from "../../Pages/Country/HotelsSection";
@@ -23,7 +22,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <Hero />
       <Destinations />
       <Aboutus />
