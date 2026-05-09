@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Hero from "./Hero";
 import Destinations from "./Destinations";
-import HotelsSection from "../../Pages/Country/HotelsSection";
 import CTA from "./CTA";
 import Footer from "./Footer";
 import Aboutus from "./Aboutus";
@@ -26,7 +25,6 @@ const Home = () => {
       <Destinations />
       <Aboutus />
       <div className="transition-all duration-700 ease-in-out">
-        <HotelsSection countryName={currentCountry} />
       </div>
 
       <CTA />
