@@ -90,7 +90,6 @@ export default function SubscriptionPage() {
   const weeklyPrice = billing === "monthly" ? 10 : 8;
   const monthlyPrice = billing === "monthly" ? 20 : 16;
 
-  // ================= PAYMENT =================
   const handlePayment = async (planType, amount) => {
     try {
       setPaymentLoading(planType);
