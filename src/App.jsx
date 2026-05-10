@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -19,7 +20,7 @@ function Layout() {
         <Navbar />
       </div>
 
-      <main className="pt-14"> 
+      <main className="pt-14">
         <Outlet />
       </main>
     </>
@@ -36,8 +37,35 @@ export default function App() {
 
   return (
     <Router>
-      <Routes>
+      {/* Toast Notifications */}
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 3000,
+          style: {
+            borderRadius: "14px",
+            background: "#fff",
+            color: "#1a3c34",
+            fontWeight: "600",
+            padding: "14px 18px",
+          },
+          success: {
+            iconTheme: {
+              primary: "#22a05a",
+              secondary: "#fff",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#e8472a",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />
 
+      <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
 
@@ -46,7 +74,6 @@ export default function App() {
           <Route path="/country" element={<Country />} />
           <Route path="/subscription" element={<Subscription />} />
         </Route>
-
       </Routes>
     </Router>
   );
