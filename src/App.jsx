@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Outlet } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Outlet,
+} from "react-router-dom";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 
@@ -37,7 +42,6 @@ export default function App() {
 
   return (
     <Router>
-      {/* Toast Notifications */}
       <Toaster
         position="top-right"
         reverseOrder={false}
@@ -71,7 +75,7 @@ export default function App() {
 
         <Route element={<Layout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/country" element={<Country />} />
+          <Route path="/country/:countryName" element={<Country />} />{" "}
           <Route path="/subscription" element={<Subscription />} />
         </Route>
       </Routes>
